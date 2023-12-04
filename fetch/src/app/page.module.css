@@ -46,3 +46,8 @@
        width: 70px;
        height: 25px;
 }
+
+.pokemon {
+       height: auto;
+       width: 200px;
+}
