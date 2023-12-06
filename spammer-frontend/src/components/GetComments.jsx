@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { API_URL } from '@/lib/API_URL.js';
 import styles from '../app/page.module.css';
 
-export default function FetchComments( {comments}) {
+export default function GetComments() {
   const [comments, setComments] = useState([]);
 
   async function fetchComments() {
-    const response = await fetch(`${API_URL}/api/posts/af1748d5-b94f-45e1-bb53-34972df54eed/comments`);
+    const response = await fetch(`${API_URL}/api/posts/${post.id}/comments`);
     const info = await response.json();
     setComments(info.comments);
   }

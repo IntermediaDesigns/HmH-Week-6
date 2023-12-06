@@ -3,6 +3,7 @@
 import LikeMessage from '@/components/LikeMessage.jsx';
 import styles from './page.module.css'
 import GetMessages from '@/components/GetMessages.jsx'
+import GetComments from '@/components/GetComments.jsx';
 
 
 export default function Home() {

@@ -5,7 +5,7 @@ import styles from '../app/page.module.css';
 import NewMessage from './NewMessage.jsx'
 import LikeMessage from './LikeMessage.jsx';
 
-export default function ParentComponent({ comments }) {
+export default function GetMessagesComponent() {
   const [messages, setMessages] = useState([]);
 
   async function fetchMessages() {
