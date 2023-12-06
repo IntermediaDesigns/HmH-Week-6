@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react';
 import { API_URL } from '@/lib/API_URL.js';
 import styles from '../app/page.module.css';
 import NewMessage from './NewMessage.jsx'
+import LikeMessage from './LikeMessage.jsx';
 
-export default function ParentComponent() {
+export default function ParentComponent({ comments }) {
   const [messages, setMessages] = useState([]);
 
   async function fetchMessages() {
@@ -21,6 +22,7 @@ export default function ParentComponent() {
     <div>
       <NewMessage onNewMessage={fetchMessages} />
       <GetMessages messages={messages} />
+      
     </div>
   );
 }
@@ -31,6 +33,7 @@ function GetMessages({ messages }) {
       {messages.map((post) => (
         <div className={styles.postsContainer}>
           <p className={styles.posts}>{post.text}</p>
+          <LikeMessage />
         </div>
       ))}
     </div>

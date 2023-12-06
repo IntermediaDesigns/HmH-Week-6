@@ -1,9 +1,8 @@
-"use client";
 import { useState, useEffect } from 'react';
 import { API_URL } from '@/lib/API_URL.js';
 import styles from '../app/page.module.css';
 
-export default function GetCommentsComponent() {
+export default function FetchComments( {comments}) {
   const [comments, setComments] = useState([]);
 
   async function fetchComments() {
@@ -18,17 +17,17 @@ export default function GetCommentsComponent() {
 
   return (
     <div>
-      <GetComments comments={comments} />
+      <DisplayComments comments={comments} />
     </div>
   );
 }
 
-function GetComments({ comments }) {
+function DisplayComments({ comments }) {
   return (
     <div className={styles.getCommentsContainer}>
-      {comments.map((comments) => (
+      {comments.map((comment) => (
         <div className={styles.commentsContainer}>
-          <p className={styles.comments}>{comments.text}</p>
+          <p className={styles.comments}>{comment.text}</p>
         </div>
       ))}
     </div>

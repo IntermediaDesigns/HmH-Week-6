@@ -49,7 +49,7 @@ export default function NewMessage({ onNewMessage }) {
           Post Message
         </button>
       </form>
-      {error && <p className={styles.errorMessage}>⛔  {error}</p>}
+      {error && <p className={styles.errorMessage}>⛔ {error}</p>}
     </div>
   );
 }

@@ -1,8 +1,9 @@
 
-import PostMessage from '@/components/GetMessages.jsx'
+"use client";
+import LikeMessage from '@/components/LikeMessage.jsx';
 import styles from './page.module.css'
 import GetMessages from '@/components/GetMessages.jsx'
-import NewMessage from '@/components/NewMessage.jsx'
+
 
 export default function Home() {
   return (
