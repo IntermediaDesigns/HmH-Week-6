@@ -10,7 +10,7 @@
   text-shadow: 2px 2px 4px black;
 }
 
-.newMessageContainer {
+.newPostsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
