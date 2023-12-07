@@ -2,56 +2,52 @@
 import { useState } from 'react';
 import styles from '../app/page.module.css';
 import { API_URL } from '@/lib/API_URL.js';
-import { useRouter } from 'next/navigation.js';
 
-export default function NewPosts() {
-       const [text, setText] = useState('');
+export default function NewComments({onNewComment}) {
+       const [textComment, setTextComment] = useState('');
        const [error, setError] = useState('');
-       const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (text === '') {
+    if (textComment === '') {
       setError('You must provide text in field.');
       return;
     }
 
-    const res = await fetch(`${API_URL}/api/posts`, {
+    const res = await fetch(`${API_URL}/api/posts/:postId/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        text,
+        commentstext
       }),
     });
     const info = await res.json();
     if (!info.success) {
       setError(info.error);
     } else {
-      setText('');
-      router.refresh();
+      setTextComment('');
+      onNewComment();
     }
   }
 
 
-
-
   return (
        <div>
-       <form onSubmit={handleSubmit} className={styles.newPostsContainer}>
+       <form onSubmit={handleSubmit} className={styles.newCommentsContainer}>
          <textarea
-           value={text}
+           value={textComment}
            onChange={(e) => {
-             setText(e.target.value);
+             setTextComment(e.target.value);
              setError('');
            }}
-           placeholder="What's your message?"
+           placeholder="Post a comment?"
            className={styles.textInput}
          />
          <button className={styles.submitBtn} type='submit'>
-           Post Message
+         💬
          </button>
        </form>
        {error && <p className={styles.errorMessage}>⛔ {error}</p>}

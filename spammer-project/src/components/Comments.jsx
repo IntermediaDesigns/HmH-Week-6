@@ -1,36 +1,20 @@
-'use client';
 import { API_URL } from '@/lib/API_URL.js';
-import { useState, useEffect } from 'react';
 import styles from '../app/page.module.css';
 
-export default function GetCommentsComponent() {
-  const [comments, setComments] = useState([]);
+export default async function GetCommentsComponent({post}) {
 
-  async function fetchComments() {
-    const response = await fetch(`${API_URL}/api/posts/post.id/comments`);
+    const response = await fetch(`${API_URL}/api/posts/${post.id}/comments`);
     const info = await response.json();
-    setComments(info.comments);
-  }
-
-  useEffect(() => {
-    fetchComments();
-  }, []);
+    const comments = info.comments;
+  
 
   return (
-    <div>
-      <GetComments comments={comments} />
-    </div>
-  );
-}
-
-function GetComments({ comments }) {
-  return (
-    <div className={styles.getCommentsContainer}>
+    <div className={styles.showCommentsContainer}>
       {comments.map((comment) => (
-        <div className={styles.commentsContainer}>
-          <p className={styles.comments}>{comment.text}</p>
-        </div>
+        <p className={styles.commentText}>🗨️ {comment.text}</p>
       ))}
+      
     </div>
   );
 }
+

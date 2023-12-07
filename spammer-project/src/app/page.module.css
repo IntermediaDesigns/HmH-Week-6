@@ -20,6 +20,30 @@
   margin-right: auto;
 }
 
+.emojiContainer{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0;
+  justify-content: flex-end;
+  height: 35px;
+}
+
+.emoji {
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.emoji:hover {
+  animation: wiggle 0.5s infinite;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
 .textInput{
   width: 100%;
   height: 100px;
@@ -77,12 +101,32 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
-  background-color: white;
+  background-color: rgb(244, 195, 203);
   height: auto;
-  width: 100%;
+  width: auto;
   padding: 10px;
   border-radius: 10px;
   font-family: Signika;
   font-size: 16px;
   font-weight: 300;
+}
+
+.showCommentsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(117, 231, 231);
+  Border-radius: 10px;
+}
+
+.commentText {
+  font-family: Signika;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 10px;
+  text-align: left;
 }
