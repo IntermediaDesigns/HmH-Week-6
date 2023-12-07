@@ -1,6 +1,40 @@
+"use client";
 import { API_URL } from '@/lib/API_URL.js';
 import styles from '../app/page.module.css';
 import Comments from './Comments.jsx';
+
+function Post({ post }) {
+  const deletePost = async (id) => {
+    const response = await fetch(`${API_URL}/api/posts/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok) {
+      throw new Error('Error deleting post');
+    }
+
+    // Refresh posts after deletion
+    window.location.reload();
+  }
+
+  return (
+    <div key={post.id}>
+      <div className={styles.postsContainer}>
+        <p>{post.text}</p>
+        <div className={styles.emojiContainer}>
+          <p className={styles.emoji}>👍</p>
+          <p className={styles.emoji}>💬</p>
+          <p className={styles.emoji} onClick={() => deletePost(post.id)}>🗑️</p>
+          <p className={styles.emoji}>📝</p>
+        </div>
+      </div>
+
+      <div>
+        <Comments post={post} />
+      </div>
+    </div>
+  );
+}
 
 export default async function GetPostsComponent() {
   const response = await fetch(`${API_URL}/api/posts`, {cache: "no-store"});
@@ -10,21 +44,7 @@ export default async function GetPostsComponent() {
   return (
     <div >
       {posts.map((post) => (
-        <div key={post.id}>
-          <div className={styles.postsContainer}>
-            <p className={styles.posts}>{post.text}</p>
-            <div className={styles.emojiContainer}>
-              <p className={styles.emoji}>👍</p>
-              <p className={styles.emoji}>💬</p>
-              <p className={styles.emoji}>🗑️</p>
-              <p className={styles.emoji}>📝</p>
-            </div>
-          </div>
-
-          <div className={styles.showCommentsContainer}>
-            <Comments post={post} />
-          </div>
-        </div>
+        <Post key={post.id} post={post} />
       ))}
     </div>
   );

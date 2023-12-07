@@ -10,8 +10,9 @@ export default async function GetCommentsComponent({post}) {
 
   return (
     <div className={styles.showCommentsContainer}>
+      
       {comments.map((comment) => (
-        <p className={styles.commentText}>🗨️ {comment.text}</p>
+        <li key={comment.id} className={styles.commentText}>🗨️ {comment.text}</li>
       ))}
       
     </div>

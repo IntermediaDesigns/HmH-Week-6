@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@400;700&display=swap');
 
 .spammerTitle{
-  font-family: Xolonium;
+  font-family: 'Xolonium';
   font-size: 44px;
   padding-left: 10px;
   padding-bottom: 20px;
@@ -25,7 +25,8 @@
   gap: 10px;
   margin-bottom: 0;
   justify-content: flex-end;
-  height: 35px;
+  height: 40px;
+  z-index: 0;
 }
 
 .emoji {
@@ -50,9 +51,9 @@
   border-radius: 10px;
   padding: 5px;
   resize: vertical;
-  font-family: Signika;
+  font-family: 'Thasadith', sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .submitBtn{
@@ -67,7 +68,7 @@
   text-shadow: 2px 2px 4px black;
   font-size: 16px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.462);
-  font-family: Signika;
+  font-family: 'Thasadith', sans-serif;
   transform: scale(1.1);
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -81,9 +82,9 @@
 .errorMessage{
   color: yellow;
   text-align: center;
-  font-family: Signika;
+  font-family: 'Thasadith', sans-serif;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .getPostsContainer {
@@ -101,32 +102,46 @@
   display: flex;
   flex-direction: column;
   margin: 20px;
-  background-color: rgb(244, 195, 203);
+  background: linear-gradient(180deg, #f4c2ca 0%, #f0f3f4 100%);
   height: auto;
   width: auto;
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
-  font-family: Signika;
-  font-size: 16px;
-  font-weight: 300;
+  font-family: 'Thasadith', sans-serif;
+  font-size: 18px;
+  letter-spacing: .06em;
+  font-weight: 400;
+  color: rgb(38, 42, 45);
+  position: relative;
 }
 
 .showCommentsContainer{
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: end;
+  align-items: flex-start;
+  justify-content: flex-end;
   width: 80vw;
   margin-left: auto;
   margin-right: auto;
-  background-color: rgb(117, 231, 231);
-  Border-radius: 10px;
+  
+  
 }
 
 .commentText {
-  font-family: Signika;
+  font-family: 'Thasadith', sans-serif;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
+  color: rgb(38, 42, 45);
   padding: 10px;
   text-align: left;
+  list-style-type: none;
+  margin-bottom: 10px;
+  background: linear-gradient(180deg, #74e7e7 0%, #f0f3f4 100%);
+  Border-radius: 10px;
+  height: auto;
+  width: 100%;
 }
+
+/* .ul {
+  list-style-type: none;
+} */
