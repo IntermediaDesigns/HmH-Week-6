@@ -1,4 +1,3 @@
-
 import GetPosts from '@/components/Posts.jsx'
 import styles from './page.module.css'
 import NewPosts from '@/components/NewPosts.jsx'
