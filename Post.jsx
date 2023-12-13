@@ -34,7 +34,7 @@ function Post({ post, onLike, onDelete, onComment }) {
     setShowCommentForm(false);
   };
 
-  // ... existing Post component code ...
+
   return (
        <div key={post.id}>
          <div className={styles.postsContainer}>
